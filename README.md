@@ -1,77 +1,74 @@
 <div align="center">
 
-# 👻 Kiro Gateway
+# KiroRouter
 
 **Proxy gateway for Kiro API (Amazon Q Developer / AWS CodeWhisperer)**
 
-🇬🇧 English • [🇷🇺 Русский](docs/ru/README.md) • [🇨🇳 中文](docs/zh/README.md) • [🇪🇸 Español](docs/es/README.md) • [🇮🇩 Indonesia](docs/id/README.md) • [🇧🇷 Português](docs/pt/README.md) • [🇯🇵 日本語](docs/ja/README.md) • [🇰🇷 한국어](docs/ko/README.md)
-
-Made with ❤️ by [@Jwadow](https://github.com/jwadow)
+English • [Русский](docs/ru/README.md) • [中文](docs/zh/README.md) • [Español](docs/es/README.md) • [Indonesia](docs/id/README.md) • [Português](docs/pt/README.md) • [日本語](docs/ja/README.md) • [한국어](docs/ko/README.md)
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com/)
-[![Sponsor](https://img.shields.io/badge/💖_Sponsor-Support_Development-ff69b4)](#-support-the-project)
 
 *Use Claude models from Kiro with Claude Code, OpenCode, OpenClaw, Claw Code, Codex app, Cursor, Cline, Roo Code, Kilo Code, Obsidian, OpenAI SDK, LangChain, Continue and other OpenAI or Anthropic compatible tools*
 
-[Models](#-supported-models) • [Features](#-features) • [Quick Start](#-quick-start) • [Configuration](#%EF%B8%8F-configuration) • [💖 Sponsor](#-support-the-project)
+[Models](#available-models-free-list) • [Features](#features) • [Quick Start](#quick-start) • [Configuration](#configuration)
 
 </div>
 
 ---
 
-## 🤖 Available Models (Free List)
+## Available Models (Free List)
 
-> ⚠️ **Important:** Model availability depends on your Kiro tier (free/paid). The gateway provides access to whatever models are available in your IDE or CLI based on your subscription. The list below shows models commonly available on the **free tier**.
+> **Important:** Model availability depends on your Kiro tier (free/paid). The gateway provides access to whatever models are available in your IDE or CLI based on your subscription. The list below shows models commonly available on the **free tier**.
 
-> 🔒 **Claude Opus 4.5** was removed from the free tier on January 17, 2026. It may be available on paid tiers — check your IDE/CLI model list.
+> **Claude Opus 4.5** was removed from the free tier on January 17, 2026. It may be available on paid tiers — check your IDE/CLI model list.
 
-🚀 **Claude Sonnet 4.5** — Balanced performance. Great for coding, writing, and general-purpose tasks.
+**Claude Sonnet 4.5** — Balanced performance. Great for coding, writing, and general-purpose tasks.
 
-⚡ **Claude Haiku 4.5** — Lightning fast. Perfect for quick responses, simple tasks, and chat.
+**Claude Haiku 4.5** — Lightning fast. Perfect for quick responses, simple tasks, and chat.
 
-📦 **Claude Sonnet 4** — Previous generation. Still powerful and reliable for most use cases.
+**Claude Sonnet 4** — Previous generation. Still powerful and reliable for most use cases.
 
-💤 **GLM-5** — Open MoE model (744B params, 40B active). Advanced model for complex systems engineering and long-horizon agentic tasks.
+**GLM-5** — Open MoE model (744B params, 40B active). Advanced model for complex systems engineering and long-horizon agentic tasks.
 
-🐋 **DeepSeek-V3.2** — Open MoE model (685B params, 37B active). Balanced performance for coding, reasoning, and general tasks.
+**DeepSeek-V3.2** — Open MoE model (685B params, 37B active). Balanced performance for coding, reasoning, and general tasks.
 
-🧩 **MiniMax M2.5** — Open MoE model (230B params, 10B active). Enhanced version with improved reasoning and task handling.
+**MiniMax M2.5** — Open MoE model (230B params, 10B active). Enhanced version with improved reasoning and task handling.
 
-🧩 **MiniMax M2.1** — Open MoE model (230B params, 10B active). Great for complex tasks, planning, and multi-step workflows.
+**MiniMax M2.1** — Open MoE model (230B params, 10B active). Great for complex tasks, planning, and multi-step workflows.
 
-🤖 **Qwen3-Coder-Next** — Open MoE model (80B params, 3B active). Coding-focused. Excellent for development and large projects.
+**Qwen3-Coder-Next** — Open MoE model (80B params, 3B active). Coding-focused. Excellent for development and large projects.
 
-> 💡 **Smart Model Resolution:** Use any model name format — `claude-sonnet-4-5`, `claude-sonnet-4.5`, or even versioned names like `claude-sonnet-4-5-20250929`. The gateway normalizes them automatically.
+> **Smart Model Resolution:** Use any model name format — `claude-sonnet-4-5`, `claude-sonnet-4.5`, or even versioned names like `claude-sonnet-4-5-20250929`. The gateway normalizes them automatically.
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---------|-------------|
-| 🔌 **OpenAI-compatible API** | Works with any OpenAI-compatible tool |
-| 🔌 **Anthropic-compatible API** | Native `/v1/messages` endpoint |
-| 🔀 **Multi-Account Support** | Intelligent failover between multiple accounts |
-| 🌐 **VPN/Proxy Support** | HTTP/SOCKS5 proxy for restricted networks |
-| 🧠 **Extended Thinking** | Reasoning is exclusive to our project |
-| 👁️ **Vision Support** | Send images to model |
-| 🔍 **Web Search** | Search the web for current information |
-| 🛠️ **Tool Calling** | Supports function calling |
-| 💬 **Full message history** | Passes complete conversation context |
-| 📡 **Streaming** | Full SSE streaming support |
-| 🔄 **Retry Logic** | Automatic retries on errors (403, 429, 5xx) |
-| 📋 **Extended model list** | Including versioned models |
-| 🔐 **Smart token management** | Automatic refresh before expiration |
+| **OpenAI-compatible API** | Works with any OpenAI-compatible tool |
+| **Anthropic-compatible API** | Native `/v1/messages` endpoint |
+| **Multi-Account Support** | Intelligent failover between multiple accounts |
+| **VPN/Proxy Support** | HTTP/SOCKS5 proxy for restricted networks |
+| **Extended Thinking** | Reasoning is exclusive to our project |
+| **Vision Support** | Send images to model |
+| **Web Search** | Search the web for current information |
+| **Tool Calling** | Supports function calling |
+| **Full message history** | Passes complete conversation context |
+| **Streaming** | Full SSE streaming support |
+| **Retry Logic** | Automatic retries on errors (403, 429, 5xx) |
+| **Extended model list** | Including versioned models |
+| **Smart token management** | Automatic refresh before expiration |
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 **Choose your deployment method:**
-- 🐍 **Native Python** - Full control, easy debugging
-- 🐳 **Docker** - Isolated environment, easy deployment → [jump to Docker](#-docker-deployment)
+- **Native Python** - Full control, easy debugging
+- **Docker** - Isolated environment, easy deployment → [jump to Docker](#docker-deployment)
 
 ### Prerequisites
 
@@ -107,9 +104,9 @@ The server will be available at `http://localhost:8000`
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
-> 💡 **Advanced users:** Looking for multi-account support? See [Account System](#-account-system-advanced) below.
+> **Advanced users:** Looking for multi-account support? See [Account System](#account-system-advanced) below.
 
 ### Option 1: JSON Credentials File (Kiro IDE / Enterprise)
 
@@ -128,7 +125,7 @@ PROXY_API_KEY="my-super-secret-password-123"
 ```
 
 <details>
-<summary>📄 JSON file format</summary>
+<summary>JSON file format</summary>
 
 ```json
 {
@@ -178,7 +175,7 @@ PROXY_API_KEY="my-super-secret-password-123"
 ```
 
 <details>
-<summary>📄 AWS SSO JSON file format</summary>
+<summary>AWS SSO JSON file format</summary>
 
 AWS SSO credentials files (from `~/.aws/sso/cache/`) contain:
 
@@ -198,7 +195,7 @@ AWS SSO credentials files (from `~/.aws/sso/cache/`) contain:
 </details>
 
 <details>
-<summary>🔍 How it works</summary>
+<summary>How it works</summary>
 
 The gateway automatically detects the authentication type based on the credentials file:
 
@@ -227,7 +224,7 @@ PROXY_API_KEY="my-super-secret-password-123"
 ```
 
 <details>
-<summary>📄 Database locations</summary>
+<summary>Database locations</summary>
 
 | CLI Tool | Database Path |
 |----------|---------------|
@@ -253,7 +250,7 @@ Both key formats are supported for compatibility with different kiro-cli version
 - No manual token extraction needed!
 
 <details>
-<summary>🔧 Advanced: Manual token extraction</summary>
+<summary>Advanced: Manual token extraction</summary>
 
 If you need to manually extract the refresh token (e.g., for debugging), you can intercept Kiro IDE traffic:
 - Look for requests to: `prod.us-east-1.auth.desktop.kiro.dev/refreshToken`
@@ -262,7 +259,7 @@ If you need to manually extract the refresh token (e.g., for debugging), you can
 
 ---
 
-## 🔀 Account System (Advanced)
+## Account System (Advanced)
 
 Account System is a way to manage multiple Kiro accounts with automatic failover. In the future, this system will replace `.env` file for credential configuration, but currently it's optional and intended for those who want to use multiple accounts.
 
@@ -286,7 +283,7 @@ ACCOUNT_SYSTEM=true
 - Account management only through `credentials.json`
 
 <details>
-<summary>📄 Configuration Examples</summary>
+<summary>Configuration Examples</summary>
 
 **Single account:**
 ```json
@@ -341,9 +338,9 @@ For complete configuration examples (including per-account region settings), see
 
 ---
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
-> **Docker-based deployment.** Prefer native Python? See [Quick Start](#-quick-start) above.
+> **Docker-based deployment.** Prefer native Python? See [Quick Start](#quick-start) above.
 
 ### Quick Start
 
@@ -365,7 +362,7 @@ curl http://localhost:8000/health
 ### Docker Run (Without Compose)
 
 <details>
-<summary>🔹 Using Environment Variables</summary>
+<summary>Using Environment Variables</summary>
 
 ```bash
 docker run -d \
@@ -379,7 +376,7 @@ docker run -d \
 </details>
 
 <details>
-<summary>🔹 Using Credentials File</summary>
+<summary>Using Credentials File</summary>
 
 **Linux/macOS:**
 ```bash
@@ -406,7 +403,7 @@ docker run -d `
 </details>
 
 <details>
-<summary>🔹 Using .env File</summary>
+<summary>Using .env File</summary>
 
 ```bash
 docker run -d -p 8000:8000 --env-file .env --name kiro-gateway ghcr.io/jwadow/kiro-gateway:latest
@@ -442,7 +439,7 @@ docker-compose pull && docker-compose up -d  # Update
 ```
 
 <details>
-<summary>🔧 Building from Source</summary>
+<summary>Building from Source</summary>
 
 ```bash
 docker build -t kiro-gateway .
@@ -453,7 +450,7 @@ docker run -d -p 8000:8000 --env-file .env kiro-gateway
 
 ---
 
-## 🌐 VPN/Proxy Support
+## VPN/Proxy Support
 
 **For users in China, corporate networks, or regions with connectivity issues to AWS services.**
 
@@ -479,10 +476,10 @@ VPN_PROXY_URL=192.168.1.100:8080
 
 ### Supported Protocols
 
-- ✅ **HTTP** — Standard proxy protocol
-- ✅ **HTTPS** — Secure proxy connections
-- ✅ **SOCKS5** — Advanced proxy protocol (common in VPN software)
-- ✅ **Authentication** — Username/password embedded in URL
+- **HTTP** — Standard proxy protocol
+- **HTTPS** — Secure proxy connections
+- **SOCKS5** — Advanced proxy protocol (common in VPN software)
+- **Authentication** — Username/password embedded in URL
 
 ### When You Need This
 
@@ -506,7 +503,7 @@ Leave `VPN_PROXY_URL` empty (default) if you don't need proxy support.
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 ### Endpoints
 
@@ -520,12 +517,12 @@ Leave `VPN_PROXY_URL` empty (default) if you don't need proxy support.
 
 ---
 
-## 💡 Usage Examples
+## Usage Examples
 
 ### OpenAI API
 
 <details>
-<summary>🔹 Simple cURL Request</summary>
+<summary>Simple cURL Request</summary>
 
 ```bash
 curl http://localhost:8000/v1/chat/completions \
@@ -543,7 +540,7 @@ curl http://localhost:8000/v1/chat/completions \
 </details>
 
 <details>
-<summary>🔹 Streaming Request</summary>
+<summary>Streaming Request</summary>
 
 ```bash
 curl http://localhost:8000/v1/chat/completions \
@@ -562,7 +559,7 @@ curl http://localhost:8000/v1/chat/completions \
 </details>
 
 <details>
-<summary>🛠️ With Tool Calling</summary>
+<summary>With Tool Calling</summary>
 
 ```bash
 curl http://localhost:8000/v1/chat/completions \
@@ -591,7 +588,7 @@ curl http://localhost:8000/v1/chat/completions \
 </details>
 
 <details>
-<summary>🐍 Python OpenAI SDK</summary>
+<summary>Python OpenAI SDK</summary>
 
 ```python
 from openai import OpenAI
@@ -618,7 +615,7 @@ for chunk in response:
 </details>
 
 <details>
-<summary>🦜 LangChain</summary>
+<summary>LangChain</summary>
 
 ```python
 from langchain_openai import ChatOpenAI
@@ -638,7 +635,7 @@ print(response.content)
 ### Anthropic API
 
 <details>
-<summary>🔹 Simple cURL Request</summary>
+<summary>Simple cURL Request</summary>
 
 ```bash
 curl http://localhost:8000/v1/messages \
@@ -657,7 +654,7 @@ curl http://localhost:8000/v1/messages \
 </details>
 
 <details>
-<summary>🔹 With System Prompt</summary>
+<summary>With System Prompt</summary>
 
 ```bash
 curl http://localhost:8000/v1/messages \
@@ -677,7 +674,7 @@ curl http://localhost:8000/v1/messages \
 </details>
 
 <details>
-<summary>📡 Streaming</summary>
+<summary>Streaming</summary>
 
 ```bash
 curl http://localhost:8000/v1/messages \
@@ -695,7 +692,7 @@ curl http://localhost:8000/v1/messages \
 </details>
 
 <details>
-<summary>🐍 Python Anthropic SDK</summary>
+<summary>Python Anthropic SDK</summary>
 
 ```python
 import anthropic
@@ -727,7 +724,7 @@ with client.messages.stream(
 
 ---
 
-## 🔧 Debugging
+## Debugging
 
 Debug logging is **disabled by default**. To enable, add to your `.env`:
 
@@ -762,7 +759,7 @@ When enabled, requests are logged to the `debug_logs/` folder:
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Connection Issues
 
@@ -774,7 +771,7 @@ The Q API endpoint may not be publicly resolvable in your region. Use a VPN or p
 VPN_PROXY_URL=http://127.0.0.1:7890
 ```
 
-See [VPN/Proxy Support](#-vpnproxy-support) for details.
+See [VPN/Proxy Support](#vpnproxy-support) for details.
 
 ---
 
@@ -800,16 +797,16 @@ KIRO_API_REGION="eu-central-1"
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
 
 This means:
-- ✅ You can use, modify, and distribute this software
-- ✅ You can use it for commercial purposes
-- ⚠️ **You must disclose source code** when you distribute the software
-- ⚠️ **Network use is distribution** — if you run a modified version on a server and let others interact with it, you must make the source code available to them
-- ⚠️ Modifications must be released under the same license
+- You can use, modify, and distribute this software
+- You can use it for commercial purposes
+- **You must disclose source code** when you distribute the software
+- **Network use is distribution** — if you run a modified version on a server and let others interact with it, you must make the source code available to them
+- Modifications must be released under the same license
 
 See the [LICENSE](LICENSE) file for the full license text.
 
@@ -826,39 +823,7 @@ By submitting a contribution to this project, you agree to the terms of our [Con
 
 ---
 
-## 💖 Support the Project
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Smiling%20Face%20with%20Hearts.png" alt="Love" width="80" />
-
-**If this project saved you time or money, consider supporting it!**
-
-Every contribution helps keep this project alive and growing
-
-<br>
-
-### 🤑 Donate
-
-[**☕ One-time Support**](https://app.lava.top/products/b4e34d12-3b6b-49b7-be50-50b6a20ed262/f3ea941f-de73-4ad1-bbb6-f82042ef8132)
-
-<br>
-
-### 🪙 Or send crypto
-
-| Currency | Network | Address |
-|:--------:|:-------:|:--------|
-| **USDT** | TRC20 | `TSVtgRc9pkC1UgcbVeijBHjFmpkYHDRu26` |
-| **BTC** | Bitcoin | `12GZqxqpcBsqJ4Vf1YreLqwoMGvzBPgJq6` |
-| **ETH** | Ethereum | `0xc86eab3bba3bbaf4eb5b5fff8586f1460f1fd395` |
-| **SOL** | Solana | `9amykF7KibZmdaw66a1oqYJyi75fRqgdsqnG66AK3jvh` |
-| **TON** | TON | `UQBVh8T1H3GI7gd7b-_PPNnxHYYxptrcCVf3qQk5v41h3QTM` |
-
-</div>
-
----
-
-## ⚠️ Disclaimer
+## Disclaimer
 
 This project is not affiliated with, endorsed by, or sponsored by Amazon Web Services (AWS), Anthropic, or Kiro IDE. Use at your own risk and in compliance with the terms of service of the underlying APIs.
 
@@ -866,6 +831,6 @@ This project is not affiliated with, endorsed by, or sponsored by Amazon Web Ser
 
 <div align="center">
 
-**[⬆ Back to Top](#-kiro-gateway)**
+**[Back to Top](#kirorouter)**
 
 </div>
