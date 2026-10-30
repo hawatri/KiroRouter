@@ -1,0 +1,37 @@
+{
+  "inferenceProvider": "gateway",
+  "inferenceCredentialKind": "static",
+  "inferenceGatewayBaseUrl": "http://127.0.0.1:8000",
+  "modelPrefer1mContext": true,
+  "inferenceModels": [
+    {
+      "name": "claude-opus-5.5",
+      "labelOverride": "Claude Opus 5.5",
+      "supports1m": true,
+      "prefer1m": true,
+      "anthropicFamilyTier": "opus",
+      "isFamilyDefault": true,
+      "maxEffort": "max",
+      "behavesAs": "claude-opus-5.5"
+    },
+    {
+      "name": "claude-sonnet-5.5",
+      "labelOverride": "Claude Sonnet 5.5",
+      "supports1m": true,
+      "prefer1m": false,
+      "anthropicFamilyTier": "sonnet",
+      "isFamilyDefault": true,
+      "maxEffort": "max",
+      "behavesAs": "claude-sonnet-5.5"
+    },
+    {
+      "name": "claude-haiku-5.5",
+      "labelOverride": "Claude Haiku 5.5",
+      "supports1m": false,
+      "prefer1m": false,
+      "anthropicFamilyTier": "haiku",
+      "isFamilyDefault": true,
+      "behavesAs": "claude-haiku-5.5"
+    }
+  ]
+}
